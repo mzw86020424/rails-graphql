@@ -2,6 +2,7 @@
 
 ## 環境構築
 ### 参照
-- rails
+#### rails
 https://norix.tokyo/environment/443/
-- graphQL
+#### graphQL
+https://rightcode.co.jp/blog/information-technology/ruby-on-rails-graphql-environment-implementation-syain
