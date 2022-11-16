@@ -25,7 +25,6 @@
 
 http://localhost:3000/graphiql
 
----
 ## 参考文献
 ### rails
 [M1macbookpro+dockerでRails開発環境構築](https://norix.tokyo/environment/443/) (環境構築用)
