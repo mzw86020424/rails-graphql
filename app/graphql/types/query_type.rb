@@ -9,5 +9,6 @@ module Types
 
     field :users, resolver: Queries::Resolvers::Users
     field :user, resolver: Queries::Resolvers::User
+    field :tweets, resolver: Queries::Resolvers::Tweets
   end
 end

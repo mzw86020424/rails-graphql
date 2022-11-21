@@ -7,5 +7,7 @@ module Types
     field :age, Integer
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+    # アソシエーションは手動で追加
+    field :tweets, [Types::TweetType]
   end
 end
