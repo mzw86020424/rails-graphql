@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 module Types
-  class UserType < Types::BaseObject
+  class TweetType < Types::BaseObject
     field :id, ID, null: false
-    field :name, String
-    field :age, Integer
+    field :content, String, null: false
+    field :user_id, Integer, null: false
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-    # アソシエーションは手動で追加
-    field :tweets, [Types::TweetType]
+    field :user, Types::UserType
   end
 end
