@@ -21,7 +21,7 @@ rails db:create
 http://localhost:3000/graphiql
 
 ```
-## graphQLについてわかったこと
+## graphQLについて
 ### graphQLとは
 
 > GraphQL は、API のためのクエリ言語であり、既存のデータを使ってクエリを実行するためのランタイムです。GraphQL は、API 内のデータについて完全で理解しやすい記述を提供し、クライアントが必要なものだけを求める力を与え、時間の経過とともに API を進化させることを容易にし、強力な開発者ツールを可能にします。 [graphql.org](https://graphql.org/)
@@ -38,7 +38,29 @@ http://localhost:3000/graphiql
 ![REST](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/rest-api.png)
 ![graphQL](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/graphql-api.gif)
 
+### うれしいこと
+- クライアント側が欲しい値だけを都度指定して受け取れる
+- 無駄な値のやり取りが減る
+- 一つのエンドポイントにリクエストするだけで済む
+- 型定義だけ全てしてしまえば、サーバ側の追加・変更などいらなさそう
 
+### 実装の流れ（ざっくり）
+```
+0. graphql, graphql-railsを導入
+
+1. いつも通りrailsのモデルを作成する
+rails g model User
+
+2. railsのモデルを参照してgraphqlのモデル（タイプ。型）を作成
+rails g graphql:object User
+
+3. 読み込み系リクエストの実行はquery、書き込み系リクエストの実行はmutationを作成する
+rails g graphql:mutation AddUser
+
+4. 上記それぞれquery_type.rb、mutation_type.rbに追記していく
+
+5. 使える
+```
 
 ## 今回やらなかったこと
 ### フロント側の実装
