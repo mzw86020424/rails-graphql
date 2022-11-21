@@ -1,29 +1,64 @@
 # README
 
 ## 環境構築
+```
 1. リポジトリをクローン
-
-```git clone git@github.com:mzw86020424/rails-graphql.git```
+git clone git@github.com:mzw86020424/rails-graphql.git
 
 2. 移動
-
-```cd rails-graphql```
+cd rails-graphql
 
 3. コンテナをビルド・起動
-
-```docker-compose up```
+docker-compose up
 
 4. コンテナに入る
-
-```docker exec -ti rails-graphql_app_1 bash```
+docker exec -ti rails-graphql_app_1 bash
 
 5. データベースを作る
+rails db:create
 
-```rails db:create```
-
-- graphiqlへのアクセス
-
+# graphiqlへのアクセス
 http://localhost:3000/graphiql
+
+```
+## graphQLについてわかったこと
+### graphQLとは
+
+> GraphQL は、API のためのクエリ言語であり、既存のデータを使ってクエリを実行するためのランタイムです。GraphQL は、API 内のデータについて完全で理解しやすい記述を提供し、クライアントが必要なものだけを求める力を与え、時間の経過とともに API を進化させることを容易にし、強力な開発者ツールを可能にします。 [graphql.org](https://graphql.org/)
+
+### graphQLの特徴
+- RESTの代替として生まれたもの
+- クエリ的な言語でリクエストを書く
+- リクエストはRESTでいうPOSTのみ
+- レスポンスはRESTでいう200OKのみ
+- RESTと同じようなキャッシュができない（方法はあるよう）
+[Apollo Clientのキャッシュの仕組みとローカルの状態管理について](https://zenn.dev/kazu777/articles/b64935ea7d6fee)
+
+### RESTとの比較
+![REST](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/rest-api.png)
+![graphQL](https://graphql-engine-cdn.hasura.io/learn-hasura/assets/graphql-react/graphql-api.gif)
+
+
+
+## 今回やらなかったこと
+### フロント側の実装
+- [こういうもの](https://apollo.vuejs.org/)の実装が必要そう。詳しくみれていない・・・次回フロントも実装してみたい
+### N+1問題
+- graphqlでは以下の時にusers全件取得し、その後各usersでtweets全件取得するためN＋1問題が発生する
+```
+query ExampleQuery {
+  users {
+    id
+    name
+    tweets {
+       id
+       title
+    }
+  }
+}
+```
+ N+1回避する方法はいくつかあるようで、railsの場合は[graphQL-rubyのDataloader](https://graphql-ruby.org/dataloader/dataloader.html)というライブラリで回避できるらしい。次回実装したい
+
 
 ## 参考文献
 ### rails
