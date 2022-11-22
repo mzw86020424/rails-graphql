@@ -17,9 +17,8 @@ docker exec -ti rails-graphql_app_1 bash
 5. データベースを作る
 rails db:create
 
+# rails db:seed でユーザーとツイートのテストデータ生成
 # M１以外でrailsコンテナの起動が失敗する場合、gemfile.lockの中身を削除→bundle update→再度buildするとうまくいった
-
-
 # graphiqlへのアクセス
 http://localhost:3000/graphiql
 
