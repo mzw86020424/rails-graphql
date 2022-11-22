@@ -47,6 +47,7 @@ http://localhost:3000/graphiql
 ### 実装の流れ（ざっくり）
 ```
 0. graphql, graphql-railsを導入
+rails g graphql:install
 
 1. いつも通りrailsのモデルを作成する
 rails g model User
@@ -55,7 +56,6 @@ rails g model User
 rails g graphql:object User
 
 3. 読み込み系リクエストの実行はquery、書き込み系リクエストの実行はmutationを作成する
-rails g graphql:mutation AddUser
 
 4. 上記それぞれquery_type.rb、mutation_type.rbに追記していく
 
