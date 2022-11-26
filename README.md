@@ -81,8 +81,8 @@ query ExampleQuery {
   }
 }
 ```
- N+1回避する方法はいくつかあるようで、railsの場合は[graphQL-rubyのDataloader](https://graphql-ruby.org/dataloader/dataloader.html)というライブラリで回避できるらしい。次回実装したい
-
+N+1回避する方法はいくつかあるようで、railsの場合は[graphQL-rubyのDataloader](https://graphql-ruby.org/dataloader/dataloader.html)というライブラリで回避できるらしい。次回実装したい
+→ 2022/11/26 上記実装
 
 ## 参考文献
 ### rails
@@ -98,3 +98,5 @@ query ExampleQuery {
 [GraphQLとRESTの比較](https://hasura.io/learn/ja/graphql/intro-graphql/graphql-vs-rest/)
 
 [GraphQLの便利なツール](https://qiita.com/NagaokaKenichi/items/f83148f4903b17d1d2f0)
+
+[GraphQL RubyのDataloaderを使ってみる](https://qiita.com/kyntk/items/7ff8d312480ec913f049)
