@@ -9,5 +9,9 @@ module Types
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     # アソシエーションは手動で追加
     field :tweets, [Types::TweetType]
+
+    def tweets
+      dataloader.with(::Sources::TweetsById).load(object.id)
+    end
   end
 end
